@@ -1,52 +1,13 @@
 <div id="books-index">
-	<div class="row">
-		<div class="col-md-3 col-sm-3">
-			<h3>Ruby on Rails power</h3>
-			<%= image_tag('covers/image0.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>Rails 3</h3>
-			<%= image_tag('covers/image1.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>Ruby on Rails</h3>
-			<%= image_tag('covers/image2.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>Ajax on Rails</h3>
-			<%= image_tag('covers/image3.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>		
-	</div>
-
-	<div class="row">
-		<div class="col-md-3 col-sm-3">
-			<h3>PHP Security</h3>
-			<%= image_tag('covers/image4.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>PHP</h3>
-			<%= image_tag('covers/image5.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>HTML5</h3>
-			<%= image_tag('covers/image6.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-		<div class="col-md-3 col-sm-3">
-			<h3>HTML5 Programing</h3>
-			<%= image_tag('covers/image7.jpg') %>
-			<%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
-		</div>
-	</div>
-	
-
-
-
-
+		<% @books.each_slice(4) do |book| %>
+       <div class="row">
+       	<% book.each do |book| %>
+        	<div class="col-md-3 col-sm-3">
+       		<h3><%= book.title %></h3>
+       		<%= image_tag(book.coverpath) %>
+       		<%= link_to 'Read More', book_path(book), class:'btn btn-primary' %>
+       		</div>
+        <% end %>    	
+       </div>
+    <% end %>    	
 </div>

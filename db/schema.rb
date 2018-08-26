@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_25_132801) do
+ActiveRecord::Schema.define(version: 2018_08_26_082145) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "first_name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_25_132801) do
     t.integer "pages"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "coverpath"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
