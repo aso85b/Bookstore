@@ -69,12 +69,12 @@ padding-top: 12px;
 
 .books-show-left{
 	float:left;
-	width: 40%;
+	width: 60%;
 }
 
 .books-show-right{
 	float: left;
-	width: 60%;
+	width: 40%;
 	margin-top: 10px;
 }
 

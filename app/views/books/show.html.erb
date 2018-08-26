@@ -1,27 +1,30 @@
 <div id="books-show">
-     <h2>Ruby on Rails Power</h2>
+     <h2><%= @book.title %></h2>
      <div class="books-show-left">
-     	<%= image_tag('covers/image0.jpg') %>     	
+        <%= image_tag(@book.coverpath) %>
      </div>
      <div class="books-show-right">
-     	<h3>Book Info:</h3>
+     	<h3>    Book Info:</h3>
      	<ul>
-     		<li><strong>Category:</strong> Ruby on Raols</li>
-        <li><strong>Paperback:</strong> 396 pages</li>
-        <li><strong>Published time:</strong> October 1st 2006 by Course Technology</li>
-        <li><strong>Original Title:</strong>The Comprehensive Guide (Power!)</li>
-        <li><strong>ISBN:</strong> 1598632167</li>
-        <li><strong>Edition Language:</strong>English</li>
-        <li><strong>Other Editions:</strong>None found</li>
+     	  <li><strong>Category:</strong> <%= @book.category.name %></li>
+        <li><strong>Author:</strong> <%= @book.author.first_name %> <%= @book.author.last_name %></li>
+        <li><strong>Publisher:</strong> <%= @book.publisher.name %></li>
+        <li><strong>Year:</strong> <%= @book.year %></li>
+        <li><strong>ISBN:</strong> <%= @book.isbn %></li>
+        <li><strong>Format:</strong> <%= @book.format %></li>
+        <li><strong>Pages:</strong> <%= @book.pages %></li>
      	</ul>
-     	
-     	<%= link_to "Buy For $5.47", 'https://www.goodreads.com/book/show/1111045.Ruby_on_Rails_Power_',
-     	class:'btn btn-success', target:'_blank' %>
+
+     	<%= link_to "Buy For "+ @book.price, @book.buy, class:'btn btn-success', target:'_blank' %>
 
      </div>
      <div class="clearfix"></div>
      <h4>Excerpt</h4>
-     <p>
-     	Ruby Power!: The Comprehensive Guide is a complete reference guide to Ruby, an increasingly popular open source programming language. This comprehensive book is perfect for programmers, IT professionals, consultants, web service professionals, and educators. The book is clearly written with all technical topics explained in an easy-to-understand language. A detailed table of contents and in-depth and well-organized index make topics easy to find. In addition, end-of-chapter projects encourage readers to program on their own using the new skills they have learned, and all code used in the book can be downloaded from the companion website.</p>
+     <p><%= @book.excerpt %></p>
+
+
+    <h3>Admin Functions</h3>
+    <%= link_to 'Edit', edit_book_path(@book.id)%> |
+    <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'} %>
 
 </div>
