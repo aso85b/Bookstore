@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    
+
      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,12 +28,12 @@
 
           <li class="<%= params[:controller] == 'books' ? 'active' : '' %>" style="padding-right: 20px; padding-left: 50px; "><%= link_to 'Home', root_path%></li>
            <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> --> <!--nav-item active-->
-          
+
           <li class="<%= params[:controller] == 'about' ? 'active' : '' %>" style="padding-right: 20px;">
             <%= link_to 'About', about_path%>
           </li>
-          
-           
+
+<!--
            <li class="<%= params[:controller] == 'Book' ? 'active' : '' %>" style="padding-right: 20px;">
            <%= link_to "Book", new_book_path %></li>
            <li class="<%= params[:controller] == 'Category' ? 'active' : '' %>" style="padding-right: 20px;">
@@ -42,18 +42,32 @@
            <%= link_to "Author", new_author_path %></li>
            <li class="<%= params[:controller] == 'Publisher' ? 'active' : '' %>" style="padding-right: 20px;">
            <%= link_to "Publisher", new_publisher_path %></li>
+-->
 
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add New</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-
-
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Add New
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button"><%= link_to Book, new_book_path %></button>
+    <button class="dropdown-item" type="button"><%= link_to Category, new_category_path %></button>
+    <button class="dropdown-item" type="button"><%= link_to Author, new_author_path %></button>
+    <button class="dropdown-item" type="button"><%= link_to Publisher, new_publisher_path %></button>
+  </div>
+</div>
+<!---->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Manage
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button"><%= link_to "Categories", categories_path %></button>
+    <button class="dropdown-item" type="button"><%= link_to "Authors", authors_path %></button>
+    <button class="dropdown-item" type="button"><%= link_to "Publishers", publishers_path %></button>
+  </div>
+</div>
+<!---->
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -90,7 +104,7 @@
 
            <div class="col-md-4">
             <%= render 'partials/sidebar.html.erb' %>
-           </div> 
+           </div>
 
         </div>
       </div>
@@ -102,6 +116,8 @@
   </div>
 
 </footer>
+
+
 
   </body>
 </html>
